@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SpeakSharp - Your personal English learning assistant">
+    <title>SpeakSharp - Language Learning Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="nav-brand">
+            <img src="images/light mode.svg" alt="SpeakSharp Logo" class="logo-light" width="48" height="48">
+            <img src="images/dark mode.svg" alt="SpeakSharp Logo" class="logo-dark" width="48" height="48">
+            <span>SpeakSharp</span>
+        </div>
+        <div class="nav-items">
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon" aria-hidden="true"></i>
+            </button>
+            <div class="nav-item">
+                <a href="#" aria-label="Start AI conversation">
+                    <i class="fas fa-robot" aria-hidden="true"></i> 
+                    <span>Practice English</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="#" aria-label="View chat history">
+                    <i class="fas fa-history" aria-hidden="true"></i>
+                    <span>History</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <aside id="historySidebar" class="sidebar left-sidebar" aria-label="Chat history">
+        <div class="sidebar-header">
+            <h2>Chat History</h2>
+            <button class="close-sidebar" aria-label="Close history sidebar">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="sidebar-content">
+            <!-- History items will be added here -->
+        </div>
+    </aside>
+
+    <main class="chat-container" role="main">
+        <div id="welcomeMessage" class="welcome-message" role="status">
+            <h1>Welcome to SpeakSharp!  👋</h1>
+            <p class="tagline">Train with AI. Speak like a pro.</p>
+        </div>
+
+        <div class="chat-messages" id="chatMessages" role="log" aria-live="polite">
+            <!-- Messages will be added here -->
+        </div>
+        
+        <div class="typing-indicator" id="typingIndicator" aria-hidden="true">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+        </div>
+
+        <footer class="input-area" role="form">
+            <div class="input-wrapper">
+                <textarea 
+                    id="userInput" 
+                    placeholder="Type your message..."
+                    aria-label="Message input"
+                    maxlength="500"
+                    rows="1"
+                    spellcheck="true"
+                ></textarea>
+                <div class="char-counter" aria-live="polite">
+                    <span id="charCount">0</span>/500
+                </div>
+            </div>
+            <button 
+                id="speakButton" 
+                class="action-button"
+                aria-label="Start voice input"
+                data-tooltip="Voice Input (Ctrl+M)"
+            >
+                <i class="fas fa-microphone"></i>
+            </button>
+            <button 
+                id="sendButton" 
+                class="action-button"
+                aria-label="Send message"
+                data-tooltip="Send (Enter)"
+            >
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </footer>
+
+    </main>
+
+    <div id="micOverlay" class="mic-overlay" aria-hidden="true">
+        <div class="mic-container" role="status">
+            <i class="fas fa-microphone" aria-hidden="true"></i>
+            <div class="pulse-ring"></div>
+            <div class="mic-status">Listening...</div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast" role="alert" aria-hidden="true"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
